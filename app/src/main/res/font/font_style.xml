@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font
+        android:font="@font/lobster_regular"
+        android:fontWeight="400" />
+</font-family>
+
+<!--    Tanggal Pengerjaan : 15 April 2022 - 8 Mei 2022-->
+<!--    Nim : 10119251-->
+<!--    Nama : Muhamad Ridwan-->
+<!--    Kelas :IF6-->

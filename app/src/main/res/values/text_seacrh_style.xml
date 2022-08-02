@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="searchStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:textColor">@color/oren_gedang</item>
+        <item name="android:textColorHint">@color/oren_gedang</item>
+        <item name="editTextColor">@color/oren_gedang</item>
+        <item name="tint">@color/oren_gedang</item>
+    </style>
+</resources>
