@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     FloatingActionButton fab_add;
     SearchView searchView_home;
     Notes selectedNote;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 return true;
             }
         });
+
+        View view = findViewById(R.id.textView_no_notes);
+        if (notes == null || notes.size() == 0) {
+            view.setVisibility(View.VISIBLE);
+        } else {
+            view.setVisibility(View.GONE);
+        }
+
+        SearchView searchView = (SearchView) findViewById(R.id.searchView_home);
+        EditText searchEditText = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
+        searchEditText.setTextColor(getResources().getColor(R.color.oren_gedang));
+        searchEditText.setHintTextColor(getResources().getColor(R.color.oren_gedang));
     }
 
     private void filter(String newText) {
@@ -83,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 101) {
@@ -108,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     private void updateRecycle(List<Notes> notes) {
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
         notesListAdapter = new NotesListAdapter(MainActivity.this, notes, notesClickListener);
         recyclerView.setAdapter(notesListAdapter);
     }
@@ -116,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private final NotesClickListener notesClickListener = new NotesClickListener() {
         @Override
         public void onClick(Notes notes) {
-            Intent intent = new Intent(MainActivity.this, NotesTakerActivity.class);
+            Intent intent = new Intent(MainActivity.this, ViewNoteActivity.class);
             intent.putExtra("old_note", notes);
             startActivityForResult(intent, 102);
         }
@@ -154,6 +168,13 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 notes.addAll(database.mainDAO().getAll());
                 notesListAdapter.notifyDataSetChanged();
                 return true;
+
+                case R.id.edit:
+
+                    Intent intent = new Intent(MainActivity.this, NotesTakerActivity.class);
+                    intent.putExtra("old_note", selectedNote);
+                    startActivityForResult(intent, 102);
+                    return true;
 
                 case R.id.delete:
                     database.mainDAO().delete(selectedNote);

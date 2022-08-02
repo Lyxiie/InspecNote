@@ -7,11 +7,12 @@
     android:id="@+id/notes_container"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
-    android:layout_margin="8dp">
+    android:layout_margin="10dp">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:background="@color/oren_gedang"
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -21,7 +22,7 @@
                 android:text="Title"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
-                android:textColor="@color/black"
+                android:textColor="@color/hitam_manis"
                 android:textStyle="bold"
                 android:padding="8dp"
                 android:singleLine="true"
@@ -30,6 +31,7 @@
                 android:scrollHorizontally="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+                />
             <ImageView
                 android:id="@+id/imageView_pin"
                 android:layout_alignParentEnd="true"
@@ -40,7 +42,7 @@
             android:id="@+id/textView_notes"
             android:text="Notes"
             android:textSize="14sp"
-            android:textColor="@color/black"
+            android:textColor="@color/hitam_manis"
             android:padding="8dp"
             android:textStyle="normal"
             android:maxLines="10"
@@ -49,8 +51,9 @@
         <TextView
             android:id="@+id/textView_date"
             android:text="Date"
-            android:textSize="14sp"
-            android:textColor="@color/grey"
+            android:textSize="10sp"
+            android:textAlignment="viewEnd"
+            android:textColor="#4A4E50"
             android:singleLine="true"
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
