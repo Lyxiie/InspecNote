@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".intro.IntroActivity"
-    android:background="#ffffff"
+    android:background="@color/tab_indicator_gray"
     >
 
     <androidx.viewpager.widget.ViewPager
@@ -15,6 +15,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/tab_indicator"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/tab_indicator_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,6 +27,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:text="@string/next"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -36,7 +38,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/white"
+        android:background="@color/tab_indicator_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_next"
         app:layout_constraintHorizontal_bias="0.0"
@@ -57,6 +59,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="64dp"
         android:text="@string/get_started"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -64,7 +67,7 @@
     <TextView
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="#2d2d2d"
+        android:textColor="@color/oren_gedang"
         android:id="@+id/tv_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

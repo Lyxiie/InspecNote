@@ -7,6 +7,7 @@
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/bg_button_black.xml" value="0.171" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/ic_aasdasdad.xml" value="0.171" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/ic_android_large___1.xml" value="0.171" />
+        <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/ic_back_menu.xml" value="0.171" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/ic_group_1.xml" value="0.171" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/ic_group_2.xml" value="0.171" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/ic_launcher_background.xml" value="0.171" />
@@ -14,6 +15,7 @@
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/ic_pin.xml" value="0.171" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/indicator_default.xml" value="0.137" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/indicator_selected.xml" value="0.171" />
+        <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/drawable/indicator_selector.xml" value="0.171" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/layout/activity_intro.xml" value="0.1265625" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/layout/activity_notes_taker.xml" value="0.136" />
@@ -22,6 +24,7 @@
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/layout/layout_screen.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/layout/notes_list.xml" value="0.1621376811594203" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/menu/popup_menu.xml" value="0.1921875" />
+        <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/menu/top_app_bar.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Lyxiie/AndroidStudioProjects/InspecNote/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.171" />
       </map>
     </option>

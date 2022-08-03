@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         EditText searchEditText = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
         searchEditText.setTextColor(getResources().getColor(R.color.oren_gedang));
         searchEditText.setHintTextColor(getResources().getColor(R.color.oren_gedang));
+
     }
 
     private void filter(String newText) {
@@ -186,4 +188,5 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 return false;
         }
     }
+
 }

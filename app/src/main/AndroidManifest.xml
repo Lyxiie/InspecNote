@@ -19,7 +19,7 @@
         <activity
             android:name=".intro.IntroActivity"
             android:configChanges="orientation"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation"

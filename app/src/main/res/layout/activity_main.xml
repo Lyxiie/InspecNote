@@ -33,7 +33,7 @@
         android:gravity="center"
         android:text="No notes found"
         android:textColor="@color/oren_gedang"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
