@@ -4,4 +4,10 @@
     <string name="skip">Skip</string>
     <string name="next">Next</string>
     <string name="textview">Text View</string>
+    <string name="selamat_datang_judul">Selamat datang di Inspec Note</string>
+    <string name="selamat_datang_intro">Aplikasi pembuat catatan GRATIS!</string>
+    <string name="buat_catatan_judul">Buat catatan Anda</string>
+    <string name="buat_catatan_intro">Inspec Note dapat menyimpan catatan Anda TANPA BATAS.</string>
+    <string name="aman_dan_terpercaya_judul">Aman dan Terpercaya</string>
+    <string name="aman_dan_terpercaya_intro">Pihak Inspec Note TIDAK mendapat data apapun dari Anda.</string>
 </resources>

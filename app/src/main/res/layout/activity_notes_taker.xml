@@ -25,6 +25,7 @@
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"/>
         </RelativeLayout>
+
     </androidx.appcompat.widget.Toolbar>
     <EditText
         android:id="@+id/editText_title"
