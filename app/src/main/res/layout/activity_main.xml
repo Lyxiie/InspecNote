@@ -19,7 +19,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         app:iconifiedByDefault="false"
-        app:queryHint="Search Notes..."
+        app:queryHint="Cari Catatan.."
         />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:text="No notes found"
+        android:text="Catatan tidak ditemukan"
         android:textColor="@color/oren_gedang"
         android:textSize="18sp" />
 

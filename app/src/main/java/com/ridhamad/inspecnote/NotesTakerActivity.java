@@ -1,8 +1,12 @@
 package com.ridhamad.inspecnote;
 
+import static com.ridhamad.inspecnote.R.string.alert_delete_acc;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +25,7 @@ public class NotesTakerActivity extends AppCompatActivity {
     ImageView imageView_save;
     Notes notes;
     boolean isOldNotes = false;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +54,7 @@ public class NotesTakerActivity extends AppCompatActivity {
                 String description = editText_notes.getText().toString();
 
                 if (description.isEmpty()) {
-                    Toast.makeText(NotesTakerActivity.this, "Please add some notes", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NotesTakerActivity.this, "Waduh, deskripsi masih kosong nih.", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM yyyy HH:mm a");
@@ -59,14 +64,38 @@ public class NotesTakerActivity extends AppCompatActivity {
                     notes = new Notes();
                 }
 
-                notes.setTitle(title);
-                notes.setNotes(description);
-                notes.setDate(formatter.format(date));
+//                notes.setTitle(title);
+//                notes.setNotes(description);
+//                notes.setDate(formatter.format(date));
+//
+//                Intent intent = new Intent();
+//                intent.putExtra("note", notes);
+//                setResult(Activity.RESULT_OK, intent);
+//                finish();
 
-                Intent intent = new Intent();
-                intent.putExtra("note", notes);
-                setResult(Activity.RESULT_OK, intent);
-                finish();
+                builder = new AlertDialog.Builder(NotesTakerActivity.this);
+                builder.setMessage("Pastikan data yang dimasukan sudah benar.").setCancelable(false)
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                notes.setTitle(title);
+                                notes.setNotes(description);
+                                notes.setDate(formatter.format(date));
+
+                                Intent intent = new Intent();
+                                intent.putExtra("note", notes);
+                                setResult(Activity.RESULT_OK, intent);
+                                finish();
+                            }
+                        }).setNegativeButton(R.string.batal, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.setTitle("Simpan Data?");
+                alertDialog.show();
             }
         });
     }

@@ -1,13 +1,22 @@
 <resources>
     <string name="app_name">Inspec Note</string>
-    <string name="get_started">Get Started</string>
-    <string name="skip">Skip</string>
-    <string name="next">Next</string>
+    <string name="get_started">Mulai !</string>
+    <string name="skip">Lewati</string>
+    <string name="next">Selanjutnya</string>
     <string name="textview">Text View</string>
     <string name="selamat_datang_judul">Selamat datang di Inspec Note</string>
     <string name="selamat_datang_intro">Aplikasi pembuat catatan GRATIS!</string>
     <string name="buat_catatan_judul">Buat catatan Anda</string>
-    <string name="buat_catatan_intro">Inspec Note dapat menyimpan catatan Anda TANPA BATAS.</string>
+    <string name="buat_catatan_intro">InspecNote dapat menyimpan catatan Anda TANPA BATAS.</string>
     <string name="aman_dan_terpercaya_judul">Aman dan Terpercaya</string>
-    <string name="aman_dan_terpercaya_intro">Pihak Inspec Note TIDAK mendapat data apapun dari Anda.</string>
+    <string name="aman_dan_terpercaya_intro">Pihak InspecNote TIDAK mendapat data apapun dari Anda.</string>
+    <string name="cancel">Cancel</string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+    <string name="alert_delete">Yakin untuk menghapus Note?</string>
+    <string name="title">Title</string>
+    <string name="alert_delete_cancel">Catatan batal dihapus!</string>
+    <string name="alert_delete_acc">Catatan telah dihapus!</string>
+    <string name="batal">Batal</string>
+    <string name="hapus">Hapus</string>
 </resources>

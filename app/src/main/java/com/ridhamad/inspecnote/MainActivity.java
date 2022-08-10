@@ -1,5 +1,7 @@
 package com.ridhamad.inspecnote;
 
+import static com.ridhamad.inspecnote.R.string.alert_delete_acc;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
@@ -11,6 +13,9 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,6 +24,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ridhamad.inspecnote.Adapters.NotesListAdapter;
 import com.ridhamad.inspecnote.Database.RoomDB;
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     FloatingActionButton fab_add;
     SearchView searchView_home;
     Notes selectedNote;
+    AlertDialog.Builder builder;
 
 
     @Override
@@ -179,11 +186,33 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     return true;
 
                 case R.id.delete:
-                    database.mainDAO().delete(selectedNote);
-                    notes.remove(selectedNote);
-                    notesListAdapter.notifyDataSetChanged();
-                    Toast.makeText(MainActivity.this, "Note Deleted!", Toast.LENGTH_SHORT).show();
-                    return true;
+//                    database.mainDAO().delete(selectedNote);
+//                    notes.remove(selectedNote);
+//                    notesListAdapter.notifyDataSetChanged();
+//                    Toast.makeText(MainActivity.this, "Note Deleted!", Toast.LENGTH_SHORT).show();
+//                    return true;
+
+                    builder = new AlertDialog.Builder(this);
+//                    builder.setMessage("Konfirmasi Hapus").setTitle(R.string.title);
+                    builder.setMessage("Pesan akan dihapus selamanya, Anda yakin?").setCancelable(false)
+                            .setPositiveButton(R.string.hapus, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            database.mainDAO().delete(selectedNote);
+                            notes.remove(selectedNote);
+                            notesListAdapter.notifyDataSetChanged();
+                            Toast.makeText(MainActivity.this, alert_delete_acc, Toast.LENGTH_SHORT).show();
+                        }
+                    }).setNegativeButton(R.string.batal, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(MainActivity.this, R.string.alert_delete_cancel, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.setTitle("Konfirmasi Hapus");
+                    alertDialog.show();
+
             default:
                 return false;
         }

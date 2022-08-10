@@ -29,7 +29,7 @@
     </androidx.appcompat.widget.Toolbar>
     <EditText
         android:id="@+id/editText_title"
-        android:hint="Title: "
+        android:hint="Judul : "
         android:textColorHint="@color/oren_gedang"
         android:padding="8dp"
         android:textStyle="bold"
@@ -42,7 +42,7 @@
         />
     <EditText
         android:id="@+id/editText_notes"
-        android:hint="Add Notes: "
+        android:hint="Deskripsi : "
         android:textColorHint="@color/oren_gedang"
         android:padding="8dp"
         android:textColor="@color/oren_gedang"
