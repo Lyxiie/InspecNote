@@ -189,12 +189,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     return true;
 
                 case R.id.delete:
-//                    database.mainDAO().delete(selectedNote);
-//                    notes.remove(selectedNote);
-//                    notesListAdapter.notifyDataSetChanged();
-//                    Toast.makeText(MainActivity.this, "Note Deleted!", Toast.LENGTH_SHORT).show();
-//                    return true;
-
                     builder = new AlertDialog.Builder(this);
 //                    builder.setMessage("Konfirmasi Hapus").setTitle(R.string.title);
                     builder.setMessage("Pesan akan dihapus selamanya, Anda yakin?").setCancelable(false)
@@ -226,7 +220,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.optionmenu, menu);
-        //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
 
     }

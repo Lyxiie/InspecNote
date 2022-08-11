@@ -64,15 +64,6 @@ public class NotesTakerActivity extends AppCompatActivity {
                     notes = new Notes();
                 }
 
-//                notes.setTitle(title);
-//                notes.setNotes(description);
-//                notes.setDate(formatter.format(date));
-//
-//                Intent intent = new Intent();
-//                intent.putExtra("note", notes);
-//                setResult(Activity.RESULT_OK, intent);
-//                finish();
-
                 builder = new AlertDialog.Builder(NotesTakerActivity.this);
                 builder.setMessage("Pastikan data yang dimasukan sudah benar.").setCancelable(false)
                         .setPositiveButton("Ya", new DialogInterface.OnClickListener() {

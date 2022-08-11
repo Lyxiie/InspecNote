@@ -25,7 +25,6 @@ import java.util.Objects;
 public class ViewNoteActivity extends AppCompatActivity{
 
     TextView textView_title, textView_notes;
-//    ImageView imageView_edit;
     Notes notes;
     boolean isOldNotes = false;
 
@@ -34,17 +33,11 @@ public class ViewNoteActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_note);
-
-//        getSupportActionBar().hide();
-//        imageView_edit = findViewById(R.id.imageView_edit);
-
-//        textView_title = findViewById(R.id.textView_title);
         textView_notes = findViewById(R.id.textView_notes);
 
         notes = new Notes();
         try {
             notes = (Notes) getIntent().getSerializableExtra("old_note");
-//            textView_title.setText(notes.getTitle());
             textView_notes.setText(notes.getNotes());
             isOldNotes = true;
         } catch (Exception e) {
@@ -54,15 +47,6 @@ public class ViewNoteActivity extends AppCompatActivity{
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(notes.getTitle());
-
-//        imageView_edit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(ViewNoteActivity.this, NotesTakerActivity.class);
-//                intent.putExtra("old_note", notes);
-//                startActivityForResult(intent, 102);
-//            }
-//        });
 
     }
 

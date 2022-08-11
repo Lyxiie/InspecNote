@@ -33,7 +33,6 @@ public class IntroActivity extends AppCompatActivity {
     Animation btnAnim ;
     TextView tvSkip;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +51,6 @@ public class IntroActivity extends AppCompatActivity {
             Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class );
             startActivity(mainActivity);
             finish();
-
-
         }
 
         setContentView(R.layout.activity_intro);
@@ -93,11 +90,8 @@ public class IntroActivity extends AppCompatActivity {
 
                 position = screenPager.getCurrentItem();
                 if (position < mList.size()) {
-
                     position++;
                     screenPager.setCurrentItem(position);
-
-
                 }
 
                 if (position == mList.size()-1) { // when we rech to the last screen
@@ -105,12 +99,7 @@ public class IntroActivity extends AppCompatActivity {
                     // TODO : show the GETSTARTED Button and hide the indicator and the next button
 
                     loaddLastScreen();
-
-
                 }
-
-
-
             }
         });
 
@@ -123,24 +112,18 @@ public class IntroActivity extends AppCompatActivity {
         tabIndicator.addOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
                 if (tab.getPosition() == mList.size()-1) {
 
                     loaddLastScreen();
-
                 }
-
-
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
 
@@ -151,8 +134,6 @@ public class IntroActivity extends AppCompatActivity {
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 //open main activity
 
                 Intent mainActivity = new Intent(getApplicationContext(),MainActivity.class);
@@ -162,9 +143,6 @@ public class IntroActivity extends AppCompatActivity {
                 // i'm going to use shared preferences to that process
                 savePrefsData();
                 finish();
-
-
-
             }
         });
 
@@ -176,19 +154,11 @@ public class IntroActivity extends AppCompatActivity {
                 screenPager.setCurrentItem(mList.size());
             }
         });
-
-
-
     }
 
     private boolean restorePrefData() {
-
-
         SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
         return pref.getBoolean("isIntroOpnend",false);
-
-
-
     }
 
     private void savePrefsData() {
@@ -197,13 +167,10 @@ public class IntroActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean("isIntroOpnend",true);
         editor.apply();
-
-
     }
 
     // show the GETSTARTED Button and hide the indicator and the next button
     private void loaddLastScreen() {
-
         btnNext.setVisibility(View.INVISIBLE);
         btnGetStarted.setVisibility(View.VISIBLE);
         tvSkip.setVisibility(View.INVISIBLE);
@@ -211,8 +178,5 @@ public class IntroActivity extends AppCompatActivity {
         // TODO : ADD an animation the getstarted button
         // setup animation
         btnGetStarted.setAnimation(btnAnim);
-
-
-
     }
 }
