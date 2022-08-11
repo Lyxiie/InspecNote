@@ -43,6 +43,7 @@
     <TextView
         android:id="@+id/textView_notes"
         android:hint="Deskripsi.."
+        android:fontFamily="@font/montserrat_regular"
         android:textColorHint="@color/hitam_manis"
         android:padding="8dp"
         android:textColor="@color/hitam_manis"

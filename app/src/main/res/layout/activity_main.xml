@@ -31,6 +31,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:gravity="center"
+        android:fontFamily="@font/montserrat_medium"
         android:text="Catatan tidak ditemukan"
         android:textColor="@color/oren_gedang"
         android:textSize="18sp" />

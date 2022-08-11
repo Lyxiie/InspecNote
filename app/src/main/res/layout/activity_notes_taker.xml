@@ -31,6 +31,7 @@
         android:id="@+id/editText_title"
         android:hint="Judul : "
         android:textColorHint="@color/oren_gedang"
+        android:fontFamily="@font/montserrat_medium"
         android:padding="8dp"
         android:textStyle="bold"
         android:textSize="20sp"
@@ -43,6 +44,7 @@
     <EditText
         android:id="@+id/editText_notes"
         android:hint="Deskripsi : "
+        android:fontFamily="@font/montserrat_regular"
         android:textColorHint="@color/oren_gedang"
         android:padding="8dp"
         android:textColor="@color/oren_gedang"

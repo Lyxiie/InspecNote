@@ -55,7 +55,6 @@ public class ViewNoteActivity extends AppCompatActivity{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(notes.getTitle());
 
-
 //        imageView_edit.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
