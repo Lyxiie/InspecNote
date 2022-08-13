@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         fab_add = findViewById(R.id.fab_add);
         searchView_home = findViewById(R.id.searchView_home);
 
-        //membuat database
         database = RoomDB.getInstance(this);
         notes = database.mainDAO().getAll();
 
