@@ -38,6 +38,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
+
     RecyclerView recyclerView;
     NotesListAdapter notesListAdapter;
     List<Notes> notes = new ArrayList<>();
@@ -53,30 +54,36 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //mendapatkan widget/layout
         recyclerView = findViewById(R.id.recycler_home);
         fab_add = findViewById(R.id.fab_add);
         searchView_home = findViewById(R.id.searchView_home);
 
+        //membuat database
         database = RoomDB.getInstance(this);
         notes = database.mainDAO().getAll();
 
         updateRecycle(notes);
 
+        //menambahkan event klik untuk floating action button (tombol tambah)
         fab_add.setOnClickListener(new View.OnClickListener() {
 
             @Override
+            //ketika floating action button diklik memindahkan ke layout untuk tambah data
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, NotesTakerActivity.class);
                 startActivityForResult(intent, 101);
             }
         });
 
+        //menambahkan event klik untuk search view
         searchView_home.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
             }
 
+            //ketika query diubah, maka akan menampilkan data yang sesuai dengan query
             @Override
             public boolean onQueryTextChange(String newText) {
                 filter(newText);
@@ -84,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             }
         });
 
+        //event untuk memunculkan catatan masih kosong
         View view = findViewById(R.id.textView_no_notes);
         if (notes == null || notes.size() == 0) {
             view.setVisibility(View.VISIBLE);
@@ -93,10 +101,13 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         SearchView searchView = (SearchView) findViewById(R.id.searchView_home);
         EditText searchEditText = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
+
+        //mengganti warna search view(hint)
         searchEditText.setTextColor(getResources().getColor(R.color.oren_gedang));
         searchEditText.setHintTextColor(getResources().getColor(R.color.oren_gedang));
 
     }
+
 
     private void filter(String newText) {
         List<Notes> filteredList = new ArrayList<>();
@@ -108,10 +119,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         notesListAdapter.filterList(filteredList);
     }
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        //fungsi tambah data
         if (requestCode == 101) {
             if(resultCode == Activity.RESULT_OK){
                 Notes new_notes = (Notes) data.getSerializableExtra("note");
@@ -121,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 notesListAdapter.notifyDataSetChanged();
             }
         }
+        //fungsi edit data
         else if (requestCode == 102) {
             if(resultCode == Activity.RESULT_OK){
                 Notes new_notes = (Notes) data.getSerializableExtra("note");
@@ -132,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
     }
 
+
     private void updateRecycle(List<Notes> notes) {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
@@ -141,12 +155,14 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     private final NotesClickListener notesClickListener = new NotesClickListener() {
         @Override
+        //fungsi untuk view catatan
         public void onClick(Notes notes) {
             Intent intent = new Intent(MainActivity.this, ViewNoteActivity.class);
             intent.putExtra("old_note", notes);
             startActivityForResult(intent, 102);
         }
 
+        //memunculkan menu
         @Override
         public void onLongClick(Notes notes, CardView cardView) {
            selectedNote = new Notes();
@@ -155,6 +171,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
     };
 
+    //fungsi menampilkan menu
     private void showPopup(CardView cardView) {
         PopupMenu popupMenu = new PopupMenu(this, cardView);
         popupMenu.setOnMenuItemClickListener(this);
@@ -166,6 +183,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()){
+            //menampilkan star/pin
             case R.id.pin:
                 if (selectedNote.isPinned()){
                     database.mainDAO().pin(selectedNote.getID(), false);
@@ -181,6 +199,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 notesListAdapter.notifyDataSetChanged();
                 return true;
 
+                //fungsi pindah ke layout untuk edit data
                 case R.id.edit:
 
                     Intent intent = new Intent(MainActivity.this, NotesTakerActivity.class);
@@ -188,9 +207,12 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     startActivityForResult(intent, 102);
                     return true;
 
+                    //fungsi hapus data
                 case R.id.delete:
+                    //memunculkan alert dialog
                     builder = new AlertDialog.Builder(this);
 //                    builder.setMessage("Konfirmasi Hapus").setTitle(R.string.title);
+                    //jika true
                     builder.setMessage("Pesan akan dihapus selamanya, Anda yakin?").setCancelable(false)
                             .setPositiveButton(R.string.hapus, new DialogInterface.OnClickListener() {
                         @Override
@@ -200,6 +222,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                             notesListAdapter.notifyDataSetChanged();
                             Toast.makeText(MainActivity.this, alert_delete_acc, Toast.LENGTH_SHORT).show();
                         }
+                        //jika false
                     }).setNegativeButton(R.string.batal, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -224,6 +247,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     }
 
+    //fungsi halaman privacy policy dan about
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId()==R.id.privacypolicy){
             String url = "https://docs.google.com/document/d/1ADQfmyjLKB0uszWGoibePmFlcPL8K-u9pqmEnQKbXm0/edit?usp=sharing";

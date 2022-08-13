@@ -22,7 +22,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         Objects.requireNonNull(getSupportActionBar()).hide();
-
+        // membuat activity muncul untuk 1 detik
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(this, IntroActivity.class);
             startActivity(intent);

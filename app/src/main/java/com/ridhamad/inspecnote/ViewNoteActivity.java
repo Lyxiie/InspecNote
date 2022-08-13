@@ -24,6 +24,7 @@ import java.util.Objects;
 
 public class ViewNoteActivity extends AppCompatActivity{
 
+    //variabel
     TextView textView_title, textView_notes;
     Notes notes;
     boolean isOldNotes = false;
@@ -37,6 +38,7 @@ public class ViewNoteActivity extends AppCompatActivity{
 
         notes = new Notes();
         try {
+            //mengambil data dari intent
             notes = (Notes) getIntent().getSerializableExtra("old_note");
             textView_notes.setText(notes.getNotes());
             isOldNotes = true;
@@ -45,11 +47,13 @@ public class ViewNoteActivity extends AppCompatActivity{
         }
         notes = (Notes) getIntent().getSerializableExtra("old_note");
 
+        //memunculkan tombol back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //mengganti judul action bar
         getSupportActionBar().setTitle(notes.getTitle());
 
     }
-
+    //Fungsi tombol back
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:

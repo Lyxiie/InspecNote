@@ -15,10 +15,13 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
+        //memunculkan tombol back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //mengganti judul action bar
         getSupportActionBar().setTitle("About");
     }
 
+    //Fungsi tombol back
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:

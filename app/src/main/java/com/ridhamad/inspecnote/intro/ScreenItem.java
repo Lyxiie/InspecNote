@@ -6,12 +6,14 @@ public class ScreenItem {
     String Title,Description;
     int ScreenImg;
 
+    //constructor
     public ScreenItem(String title, String description, int screenImg) {
         Title = title;
         Description = description;
         ScreenImg = screenImg;
     }
 
+    //getter setter
     public void setTitle(String title) {
         Title = title;
     }

@@ -21,6 +21,7 @@ import java.util.Date;
 
 public class NotesTakerActivity extends AppCompatActivity {
 
+    //membuat variabel
     EditText editText_title, editText_notes;
     ImageView imageView_save;
     Notes notes;
@@ -32,12 +33,15 @@ public class NotesTakerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_taker);
 
+        //mengambil view
         imageView_save = findViewById(R.id.imageView_save);
         editText_title = findViewById(R.id.editText_title);
         editText_notes = findViewById(R.id.editText_notes);
 
+        //catatan baru
         notes = new Notes();
         try {
+            //mengambil data dari intent
             notes = (Notes) getIntent().getSerializableExtra("old_note");
             editText_title.setText(notes.getTitle());
             editText_notes.setText(notes.getNotes());
@@ -47,25 +51,32 @@ public class NotesTakerActivity extends AppCompatActivity {
         }
         notes = (Notes) getIntent().getSerializableExtra("old_note");
 
+        //menambahkan event klik pada gambar save
         imageView_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //memasukan data
                 String title = editText_title.getText().toString();
                 String description = editText_notes.getText().toString();
 
+                //pengecekan jika kosong
                 if (description.isEmpty()) {
                     Toast.makeText(NotesTakerActivity.this, "Waduh, deskripsi masih kosong nih.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                //pembuatan tanggal
                 SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM yyyy HH:mm a");
                 Date date = new Date();
 
+                //pengecekan jika ada data yang lama
                 if (!isOldNotes){
                     notes = new Notes();
                 }
 
+                //pembuatan alert dialog
                 builder = new AlertDialog.Builder(NotesTakerActivity.this);
                 builder.setMessage("Pastikan data yang dimasukan sudah benar.").setCancelable(false)
+                        //kondisi true
                         .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -84,6 +95,8 @@ public class NotesTakerActivity extends AppCompatActivity {
 
                     }
                 });
+
+                //menampilkan alert dialog
                 AlertDialog alertDialog = builder.create();
                 alertDialog.setTitle("Simpan Data?");
                 alertDialog.show();
