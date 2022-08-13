@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
+//pembuatan tabel
 @Entity(tableName = "notes")
 public class Notes implements Serializable {
 
@@ -24,6 +25,7 @@ public class Notes implements Serializable {
     @ColumnInfo(name = "pinned")
     boolean pinned = false;
 
+    //constructor
     public int getID() {
         return ID;
     }

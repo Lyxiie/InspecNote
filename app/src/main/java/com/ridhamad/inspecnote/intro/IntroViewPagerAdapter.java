@@ -58,7 +58,7 @@ public class IntroViewPagerAdapter extends PagerAdapter {
     public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
         return view == o;
     }
-    //menghapus layout
+
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
 
